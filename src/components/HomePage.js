@@ -4,7 +4,10 @@ import {createStackNavigator} from 'react-navigation'
 
 class HomePage extends Component {
     static navigationOptions = {
-        title: 'Home'
+        title: 'Home',
+        headerStyle: {
+            backgroundColor: '#ff6600'
+        }
     }
 
     render() {

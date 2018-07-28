@@ -4,7 +4,10 @@ import {View, Text, StyleSheet} from 'react-native'
 
 class JobsPage extends Component {
     static navigationOptions = {
-        title: 'Jobs'
+        title: 'Jobs',
+        headerStyle: {
+            backgroundColor: '#ff6600'
+        }
     }
 
     render() {

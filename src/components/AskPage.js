@@ -4,7 +4,10 @@ import {createStackNavigator} from "react-navigation"
 
 class AskPage extends Component {
     static navigationOptions = {
-        title: 'Ask'
+        title: 'Ask',
+        headerStyle: {
+            backgroundColor: '#ff6600'
+        }
     }
 
     render() {
