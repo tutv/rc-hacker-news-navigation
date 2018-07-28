@@ -3,10 +3,11 @@ import NewsDetail from "./NewsDetail"
 
 class NewsDetailPage extends Component {
     static navigationOptions = {
-        title: 'News',
+        title: 'Detail',
         headerStyle: {
             backgroundColor: '#ff6600'
         },
+        headerTintColor: '#fff',
         headerTitleStyle: {
             color: '#fff'
         }
