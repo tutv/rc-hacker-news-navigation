@@ -1,4 +1,4 @@
-# Xây dựng ứng dụng Hacker News hỗ trợ Navigation trong React Native
+# Using React Navigation to build Hacker News app
 
 ## Ảnh demo
 
