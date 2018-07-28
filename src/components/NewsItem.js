@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import moment from 'moment'
 import {getNewsDetail} from "../services/APIServices"
 
-class NewsItem extends Component {
+class NewsItem extends PureComponent {
     state = {
         news: {},
         loading: false
@@ -55,6 +55,10 @@ class NewsItem extends Component {
             })
     }
 
+    _handlePressNews = () => {
+        this.props.onClick && this.props.onClick(this.props.id)
+    }
+
     render() {
         const {index} = this.props
         const {news, loading} = this.state
@@ -64,22 +68,24 @@ class NewsItem extends Component {
         const timeAgo = moment(news.time * 1000).fromNow()
 
         return (
-            <View style={styles.container}>
-                <View style={styles.left}>
-                    <Text style={styles.index}>{index + 1}.</Text>
-                </View>
-                <View style={styles.right}>
-                    <Text style={styles.title}>
+            <TouchableOpacity onPress={this._handlePressNews}>
+                <View style={styles.container}>
+                    <View style={styles.left}>
+                        <Text style={styles.index}>{index + 1}.</Text>
+                    </View>
+                    <View style={styles.right}>
+                        <Text style={styles.title}>
+                            {
+                                loading ? 'Loading...' : news.title
+                            }
+                        </Text>
                         {
-                            loading ? 'Loading...' : news.title
+                            !!news && Object.keys(news).length &&
+                            <Text style={styles.meta}>{news.score || 0} {pointText} {timeAgo}</Text>
                         }
-                    </Text>
-                    {
-                        !!news && Object.keys(news).length &&
-                        <Text style={styles.meta}>{news.score || 0} {pointText} {timeAgo}</Text>
-                    }
+                    </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -87,6 +93,7 @@ class NewsItem extends Component {
 NewsItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     index: PropTypes.number.isRequired,
+    onClick: PropTypes.func
 }
 
 const styles = StyleSheet.create({

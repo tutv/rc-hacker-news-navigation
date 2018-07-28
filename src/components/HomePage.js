@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {View, StyleSheet} from 'react-native'
 import {createStackNavigator} from 'react-navigation'
 import TopNews from "./TopNews"
+import NewsDetailPage from "./NewsDetailPage"
 
 class HomePage extends Component {
     static navigationOptions = {
@@ -14,7 +15,7 @@ class HomePage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TopNews/>
+                <TopNews navigation={this.props.navigation}/>
             </View>
         )
     }
@@ -28,6 +29,9 @@ export default createStackNavigator(
     {
         Home: {
             screen: HomePage
+        },
+        News: {
+            screen: NewsDetailPage
         }
     },
     {

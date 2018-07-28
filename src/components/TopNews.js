@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, ScrollView, RefreshControl, FlatList, StyleSheet} from 'react-native'
+import {View, Text, RefreshControl, FlatList, StyleSheet} from 'react-native'
 import NewsItem from "./NewsItem"
 import {getTopNews} from "../services/APIServices"
 
@@ -59,6 +59,10 @@ class TopNews extends Component {
         }))
     }
 
+    _handleClickNews = (id) => {
+        this.props.navigation.push('News', {id})
+    }
+
     render() {
         const {error, loading} = this.state
         const dataNews = this._getDataNews()
@@ -78,7 +82,7 @@ class TopNews extends Component {
                             renderItem={({item}) => {
                                 const {id, index} = item
 
-                                return <NewsItem index={index} id={id}/>
+                                return <NewsItem onClick={this._handleClickNews} index={index} id={id}/>
                             }}
                         />
                 }

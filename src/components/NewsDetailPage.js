@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {View, Text} from 'react-native'
+import NewsDetail from "./NewsDetail"
 
 class NewsDetailPage extends Component {
     render() {
+        const itemId = this.props.navigation.getParam('id')
+
         return (
-            <View>
-                <Text>News details</Text>
-            </View>
+            <NewsDetail id={itemId}/>
         )
     }
 }
