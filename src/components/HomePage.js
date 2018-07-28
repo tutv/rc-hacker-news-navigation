@@ -5,7 +5,7 @@ import TopNews from "./TopNews"
 
 class HomePage extends Component {
     static navigationOptions = {
-        title: 'Home',
+        title: 'News',
         headerStyle: {
             backgroundColor: '#ff6600'
         }
