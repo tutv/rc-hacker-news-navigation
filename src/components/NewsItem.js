@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import {View, Text, TouchableOpacity, StyleSheet, Linking} from 'react-native'
 import moment from 'moment'
 import {getNewsDetail} from "../services/APIServices"
 
@@ -57,6 +57,14 @@ class NewsItem extends PureComponent {
     }
 
     _handlePressNews = () => {
+        const {news} = this.state;
+        if (!news || !Object.keys(news).length) return
+        const {type, url} = news
+
+        if (type !== 'story' && url) {
+            return Linking.openURL(url).catch(err => console.error('An error occurred', err));
+        }
+
         this.props.onClick && this.props.onClick(this.props.id)
     }
 

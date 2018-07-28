@@ -31,10 +31,6 @@ class NewsDetail extends Component {
             })
     }
 
-    _handleErrorWeb = error => {
-        console.error(error)
-    }
-
     render() {
         const {news, loading} = this.state
 
@@ -42,8 +38,6 @@ class NewsDetail extends Component {
         const pointText = score > 1 ? 'points' : 'point'
         const timeAgo = moment(news.time * 1000).fromNow()
         const url = news.url || ''
-
-        console.log('url', url)
 
         return (
             <View style={styles.container}>
