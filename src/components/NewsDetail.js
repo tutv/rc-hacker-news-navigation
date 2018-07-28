@@ -31,12 +31,19 @@ class NewsDetail extends Component {
             })
     }
 
+    _handleErrorWeb = error => {
+        console.error(error)
+    }
+
     render() {
         const {news, loading} = this.state
 
         const score = news.score || 0
         const pointText = score > 1 ? 'points' : 'point'
         const timeAgo = moment(news.time * 1000).fromNow()
+        const url = news.url || ''
+
+        console.log('url', url)
 
         return (
             <View style={styles.container}>
@@ -48,6 +55,13 @@ class NewsDetail extends Component {
                             <View style={styles.meta}>
                                 <Text style={styles.metaText}>{score} {pointText} {timeAgo}</Text>
                             </View>
+
+                            {
+                                !!url &&
+                                <View>
+                                    <Text style={styles.url}>{url}</Text>
+                                </View>
+                            }
                         </View>
                 }
             </View>
@@ -75,7 +89,12 @@ const styles = StyleSheet.create({
 
     metaText: {
         color: '#828282',
-        fontSize: 12
+        fontSize: 12,
+        marginBottom: 10
+    },
+
+    url: {
+        color: 'blue'
     }
 })
 
