@@ -9,6 +9,9 @@ class HomePage extends Component {
         title: 'News',
         headerStyle: {
             backgroundColor: '#ff6600'
+        },
+        headerTitleStyle: {
+            color: '#fff'
         }
     }
 

@@ -7,7 +7,10 @@ class AskPage extends Component {
     static navigationOptions = {
         title: 'Ask',
         headerStyle: {
-            backgroundColor: '#ff6600'
+            backgroundColor: '#F44336',
+        },
+        headerTitleStyle: {
+            color: '#fff'
         }
     }
 
