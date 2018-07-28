@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import {View, Text, ScrollView, RefreshControl, FlatList, StyleSheet} from 'react-native'
+import {View, Text, RefreshControl, FlatList, StyleSheet} from 'react-native'
 import NewsItem from "./NewsItem"
-import {getListJobs, getTopNews} from "../services/APIServices"
+import {getListJobs} from "../services/APIServices"
 
 class JobLists extends Component {
     state = {
