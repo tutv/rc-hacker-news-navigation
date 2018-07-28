@@ -15,6 +15,7 @@ class NewsItem extends PureComponent {
     componentDidMount() {
         const {index} = this.state
         setTimeout(() => {
+            if (!this._mounted) return
             this._fetchDetail()
         }, index * 1000 || 0)
 
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
     title: {
         color: '#000',
         fontSize: 14,
-        marginRight: 20,
+        paddingRight: 20,
         flex: 1,
         flexWrap: 'wrap'
     },
