@@ -1,16 +1,16 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
 import {createStackNavigator} from 'react-navigation'
+import {View, Text, StyleSheet} from 'react-native'
 
-class HomePage extends Component {
+class JobsPage extends Component {
     static navigationOptions = {
-        title: 'Home'
+        title: 'Jobs'
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home page</Text>
+                <Text>Jobs page</Text>
             </View>
         )
     }
@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
 
 export default createStackNavigator(
     {
-        Home: {
-            screen: HomePage
+        Init: {
+            screen: JobsPage
         }
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Init',
     }
 )

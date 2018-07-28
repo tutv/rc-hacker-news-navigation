@@ -1,22 +1,31 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native'
+import {createBottomTabNavigator} from 'react-navigation'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import HomePage from "./src/components/HomePage"
+import JobsPage from "./src/components/JobsPage"
+import AskPage from "./src/components/AskPage"
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <HomePage/>
-            </View>
-        )
-    }
+const iconMap = {
+    Home: 'ios-home',
+    Jobs: 'ios-laptop',
+    Ask: 'ios-help'
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+export default createBottomTabNavigator({
+    Home: HomePage,
+    Jobs: JobsPage,
+    Ask: AskPage
+}, {
+    navigationOptions: ({navigation}) => ({
+        tabBarIcon: ({focused, tintColor}) => {
+            const {routeName} = navigation.state
+            const iconName = iconMap[routeName] || 'ios-information'
+
+            return <Ionicons name={iconName} size={25} color={tintColor}/>;
+        },
+    }),
+    tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
     },
 })
