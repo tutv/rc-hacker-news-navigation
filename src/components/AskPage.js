@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import {createStackNavigator} from "react-navigation"
+import ListAsk from "./ListAsk"
 
 class AskPage extends Component {
     static navigationOptions = {
@@ -13,7 +14,7 @@ class AskPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Ask page</Text>
+                <ListAsk/>
             </View>
         )
     }

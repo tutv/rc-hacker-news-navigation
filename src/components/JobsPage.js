@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {createStackNavigator} from 'react-navigation'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
+import JobLists from "./ListJobs"
 
 class JobsPage extends Component {
     static navigationOptions = {
@@ -13,7 +14,7 @@ class JobsPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Jobs page</Text>
+                <JobLists/>
             </View>
         )
     }
