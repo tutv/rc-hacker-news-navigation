@@ -34,8 +34,6 @@ class NewsDetail extends Component {
     render() {
         const {news, loading} = this.state
 
-        console.log(news)
-
         const score = news.score || 0
         const pointText = score > 1 ? 'points' : 'point'
         const timeAgo = moment(news.time * 1000).fromNow()
