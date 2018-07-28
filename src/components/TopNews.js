@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Text, ScrollView, RefreshControl, FlatList, StyleSheet} from 'react-native'
 import NewsItem from "./NewsItem"
+import {getTopNews} from "../services/APIServices"
 
 class TopNews extends Component {
     state = {
@@ -22,10 +23,8 @@ class TopNews extends Component {
 
     _fetchListNews = () => {
         this.setState({loading: true})
-        console.log('fetching...')
 
-        fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
-            .then(response => response.json())
+        getTopNews()
             .then(result => {
                 if (!this._mounted) return
 

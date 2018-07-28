@@ -1,4 +1,4 @@
-export const getListNews = () => {
+export const getTopNews = () => {
     return fetch('https://hacker-news.firebaseio.com/v0/beststories.json')
         .then(response => response.json())
 }
