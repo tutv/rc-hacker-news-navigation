@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import {createStackNavigator} from 'react-navigation'
+import TopNews from "./TopNews"
 
 class HomePage extends Component {
     static navigationOptions = {
@@ -13,7 +14,7 @@ class HomePage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home page</Text>
+                <TopNews/>
             </View>
         )
     }
