@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "name": "Hacker Fries",
+    "icon": "./src/assets/logo.png",
+    "version": "1.0.0",
+    "slug": "hacker-fries",
+    "sdkVersion": "27.0.0",
+    "ios": {
+      "bundleIdentifier": "com.uet.fries.hn"
+    },
+    "android": {
+      "package": "com.uet.fries.hn"
+    }
   }
 }
